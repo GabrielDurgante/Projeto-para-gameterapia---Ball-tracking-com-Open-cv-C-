@@ -9,7 +9,7 @@ int main() {
     int respforma;
 
 
-    cout << "Qual forma voce deseja? \n 1- Quadrado \n 2- Circulo \n";
+    cout << "Qual movimento você deseja? \n 1- Quadrado \n 2- Elevação lateral \n";
     cin >> respforma;
 
     if (respforma == 1)
@@ -34,26 +34,7 @@ int main() {
                 return 0;
             }
 
-            // Top Left Corner
-            Point p1(90, 90);
-
-            // Bottom Right Corner
-            Point p2(255, 255);
-
-            int thickness = 2;
-
-            // Desenha o retangulo
-            rectangle(frame, p1, p2,
-                Scalar(0, 0, 255),
-                thickness, LINE_8);
-
-            /* Point center(220, 220);//declara o ponto central
-            int radius = 50; //Declara o raio
-            Scalar line_Color(255, 0, 0);//Cor do bgl
-
-
-            circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha*/
-
+           
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
 
@@ -71,11 +52,11 @@ int main() {
 
             //Draw crosshair
             Scalar color = cv::Scalar(0, 0, 255);
-            drawMarker(frame, com, color, cv::MARKER_CROSS, 50, 5);
+            drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 2);
 
             cvNamedWindow("Detector de bola verde", CV_WINDOW_NORMAL);
             cvSetWindowProperty("Detector de bola verde", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
-            
+
             cv::Mat dst;
             cv::flip(frame, dst, 1);
             imshow("Detector de bola verde", dst);
@@ -118,29 +99,25 @@ int main() {
 
             /* // Top Left Corner
             Point p1(90, 90);
-
             // Bottom Right Corner
             Point p2(255, 255);
-
-
-
             // Desenha o retangulo
             rectangle(frame, p1, p2,
                 Scalar(0, 0, 255),
                 thickness, LINE_8); */
 
             int contador = 1;
-            
+
             while (contador < 2)
             {
-                int thickness = 2;
+                int thickness = -1;
 
-                Point center(150, 100);//declara o ponto central
-                int radius = 50; //Declara o raio
-                Scalar line_Color(255, 0, 0);//Cor do bgl
+                Point center(100, 74);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
-                
+
                 contador++;
             }
 
@@ -148,16 +125,57 @@ int main() {
 
             while (contador < 2)
             {
-                int thickness = 2;
+                int thickness = -1;
 
-                Point center(150, 300);//declara o ponto central
-                int radius = 50; //Declara o raio
-                Scalar line_Color(255, 0, 0);//Cor do bgl
+                Point center(225, 225);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
 
                 contador++;
             }
+
+            contador = 1;
+
+            while (contador < 2)
+            {
+                int thickness = -1;
+
+                Point center(500, 74);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2)
+            {
+                int thickness = -1;
+
+                Point center(375, 225);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            Point p1(500, 74), p2(375, 225);
+            int thickness = 2;
+
+            line(frame, p1, p2, Scalar(25, 25, 112),
+                thickness, LINE_8);
+
+            Point p3(100, 74), p4(225, 225);
+
+            line(frame, p3, p4, Scalar(25, 25, 112),
+                thickness, LINE_8);
 
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
@@ -176,11 +194,11 @@ int main() {
 
             //Draw crosshair
             Scalar color = cv::Scalar(0, 0, 255);
-            drawMarker(frame, com, color, cv::MARKER_CROSS, 50, 5);
+            drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 2);
 
             cvNamedWindow("Detector de bola verde", CV_WINDOW_NORMAL);
             cvSetWindowProperty("Detector de bola verde", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
-            
+
             cv::Mat dst;
             cv::flip(frame, dst, 1);
             imshow("Detector de bola verde", dst);
@@ -203,6 +221,5 @@ int main() {
     {
         cout << "Aapenas 1 ou 2 eh aceito";
     }
-
 
 }
