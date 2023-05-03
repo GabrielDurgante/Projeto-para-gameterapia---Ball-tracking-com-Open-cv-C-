@@ -129,14 +129,35 @@ int main() {
                 Scalar(0, 0, 255),
                 thickness, LINE_8); */
 
-            int thickness = 2;
+            int contador = 1;
+            
+            while (contador < 2)
+            {
+                int thickness = 2;
 
-            Point center(220, 220);//declara o ponto central
-            int radius = 50; //Declara o raio
-            Scalar line_Color(255, 0, 0);//Cor do bgl
+                Point center(150, 100);//declara o ponto central
+                int radius = 50; //Declara o raio
+                Scalar line_Color(255, 0, 0);//Cor do bgl
 
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+                
+                contador++;
+            }
 
-            circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+            contador = 1;
+
+            while (contador < 2)
+            {
+                int thickness = 2;
+
+                Point center(150, 300);//declara o ponto central
+                int radius = 50; //Declara o raio
+                Scalar line_Color(255, 0, 0);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
 
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
