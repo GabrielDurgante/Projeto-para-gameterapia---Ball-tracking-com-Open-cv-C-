@@ -7,9 +7,10 @@ using namespace std;
 int main() {
 
     int respforma;
+    int contador = 1;
 
 
-    cout << "Qual movimento você deseja? \n 1- Quadrado \n 2- Elevação lateral \n";
+    cout << "Qual movimento você deseja? \n 1- Ampulheta \n 2- Elevacao lateral \n";
     cin >> respforma;
 
     if (respforma == 1)
@@ -34,7 +35,133 @@ int main() {
                 return 0;
             }
 
-           
+            contador = 1;
+
+            while (contador < 2)  // meio
+            {
+                int thickness = -1;
+
+                Point center(325, 225);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // meio baixo
+            {
+                int thickness = -1;
+
+                Point center(325, 425);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // meio cima
+            {
+                int thickness = -1;
+
+                Point center(325, 25);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // cima direita
+            {
+                int thickness = -1;
+
+                Point center(525, 25);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // cima esquerda
+            {
+                int thickness = -1;
+
+                Point center(125, 25);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // baixo esquerda
+            {
+                int thickness = -1;
+
+                Point center(125, 425);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            contador = 1;
+
+            while (contador < 2) // baixo direita
+            {
+                int thickness = -1;
+
+                Point center(525, 425);//declara o ponto central
+                int radius = 25; //Declara o raio
+                Scalar line_Color(25, 25, 112);//Cor do bgl
+
+                circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
+
+                contador++;
+            }
+
+            int thickness = 2;
+
+            Point a1(125, 425), a2(525, 25);
+
+            line(frame, a1, a2, Scalar(25, 25, 112),
+                thickness, LINE_8);
+
+            Point a3(125, 25), a4(525, 25);
+
+            line(frame, a3, a4, Scalar(25, 25, 112),
+                thickness, LINE_8);
+
+            Point a5(125, 25), a6(525, 425);
+
+            line(frame, a5, a6, Scalar(25, 25, 112),
+                thickness, LINE_8);
+
+            Point a7(125, 425), a8(525, 425);
+
+            line(frame, a7, a8, Scalar(25, 25, 112),
+                thickness, LINE_8);
+
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
 
@@ -97,16 +224,7 @@ int main() {
                 return 0;
             }
 
-            /* // Top Left Corner
-            Point p1(90, 90);
-            // Bottom Right Corner
-            Point p2(255, 255);
-            // Desenha o retangulo
-            rectangle(frame, p1, p2,
-                Scalar(0, 0, 255),
-                thickness, LINE_8); */
-
-            int contador = 1;
+            contador = 1;
 
             while (contador < 2)
             {
