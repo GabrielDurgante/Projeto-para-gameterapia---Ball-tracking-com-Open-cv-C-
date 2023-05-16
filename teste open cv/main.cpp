@@ -37,12 +37,15 @@ int main() {
 
             contador = 1;
 
+
+            int radius = 15;
+
+
             while (contador < 2)  // meio
             {
                 int thickness = -1;
 
                 Point center(325, 225);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -57,7 +60,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(325, 425);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -72,7 +74,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(325, 25);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -87,7 +88,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(525, 25);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -102,7 +102,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(125, 25);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -117,7 +116,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(125, 425);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -132,7 +130,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(525, 425);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -226,12 +223,13 @@ int main() {
 
             contador = 1;
 
+            int radius = 25; //Declara o raio
+
             while (contador < 2)
             {
                 int thickness = -1;
 
                 Point center(100, 74);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -246,7 +244,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(225, 225);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -261,7 +258,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(500, 74);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -276,7 +272,6 @@ int main() {
                 int thickness = -1;
 
                 Point center(375, 225);//declara o ponto central
-                int radius = 25; //Declara o raio
                 Scalar line_Color(25, 25, 112);//Cor do bgl
 
                 circle(frame, center, radius, line_Color, thickness);//Usa circle()function para desenhar a linha
@@ -300,7 +295,7 @@ int main() {
 
             blur(hsvFrame, hsvFrame, cv::Size(1, 1));
 
-            //Threshold 
+             //Threshold 
             Scalar lowerBound = cv::Scalar(55, 100, 50);
             Scalar upperBound = cv::Scalar(90, 255, 255);
             Mat threshFrame;
@@ -329,7 +324,7 @@ int main() {
             waitKey(30) == 27;
 
             if (cv::waitKey(30) >= 10)
-                break;
+                break; 
 
 
         }
