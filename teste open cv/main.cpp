@@ -15,6 +15,8 @@ int main() {
 
     if (respforma == 1)
     {
+        Point previousPosition(-1, -1); // Posição anterior da bola
+
         VideoCapture cap(0);
         if (!cap.isOpened())
         {
@@ -178,6 +180,13 @@ int main() {
             Scalar color = cv::Scalar(0, 0, 255);
             drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 2);
 
+            if (previousPosition.x != -1 && previousPosition.y != -1) {
+                // Desenha a linha entre a posição atual e a posição anterior da bola
+                line(frame, previousPosition, com, Scalar(0, 0, 255), 2);
+            }
+
+            previousPosition = com; // Atualiza a posição anterior
+
             cvNamedWindow("Detector de bola verde", CV_WINDOW_NORMAL);
             cvSetWindowProperty("Detector de bola verde", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 
@@ -201,6 +210,8 @@ int main() {
 
     if (respforma == 2)
     {
+        Point previousPosition(-1, -1); // Posição anterior da bola
+
         VideoCapture cap(0);
         if (!cap.isOpened())
         {
@@ -223,7 +234,7 @@ int main() {
 
             contador = 1;
 
-            int radius = 25; //Declara o raio
+            int radius = 15; //Declara o raio
 
             while (contador < 2)
             {
@@ -309,6 +320,13 @@ int main() {
             Scalar color = cv::Scalar(0, 0, 255);
             drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 2);
 
+            if (previousPosition.x != -1 && previousPosition.y != -1) {
+                // Desenha a linha entre a posição atual e a posição anterior da bola
+                line(frame, previousPosition, com, Scalar(0, 0, 255), 2);
+            }
+
+            previousPosition = com; // Atualiza a posição anterior
+
             cvNamedWindow("Detector de bola verde", CV_WINDOW_NORMAL);
             cvSetWindowProperty("Detector de bola verde", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 
@@ -316,7 +334,6 @@ int main() {
             cv::flip(frame, dst, 1);
             imshow("Detector de bola verde", dst);
 
-            //imshow("Detector de bola verde", frame);
             //imshow("Thresholded Tennis Ball", threshFrame);
 
 
