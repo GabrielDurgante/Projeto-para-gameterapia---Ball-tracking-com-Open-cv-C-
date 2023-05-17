@@ -1,5 +1,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <deque>
+#include <chrono>
 
 using namespace cv;
 using namespace std;
@@ -141,7 +143,7 @@ int main() {
 
             int thickness = 2;
 
-            Point a1(125, 425), a2(525, 25);
+            /*Point a1(125, 425), a2(525, 25);
 
             line(frame, a1, a2, Scalar(25, 25, 112),
                 thickness, LINE_8);
@@ -159,7 +161,7 @@ int main() {
             Point a7(125, 425), a8(525, 425);
 
             line(frame, a7, a8, Scalar(25, 25, 112),
-                thickness, LINE_8);
+                thickness, LINE_8);*/
 
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
@@ -211,6 +213,7 @@ int main() {
     if (respforma == 2)
     {
         Point previousPosition(-1, -1); // Posição anterior da bola
+        deque<pair<Point, chrono::steady_clock::time_point>> ballPositions; // Lista das últimas posições da bola e seus tempos
 
         VideoCapture cap(0);
         if (!cap.isOpened())
@@ -290,7 +293,7 @@ int main() {
                 contador++;
             }
 
-            Point p1(500, 74), p2(375, 225);
+            /*Point p1(500, 74), p2(375, 225);
             int thickness = 2;
 
             line(frame, p1, p2, Scalar(25, 25, 112),
@@ -299,7 +302,7 @@ int main() {
             Point p3(100, 74), p4(225, 225);
 
             line(frame, p3, p4, Scalar(25, 25, 112),
-                thickness, LINE_8);
+                thickness, LINE_8);*/
 
             Mat hsvFrame;
             cvtColor(frame, hsvFrame, CV_RGB2HSV);
@@ -321,8 +324,20 @@ int main() {
             drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 2);
 
             if (previousPosition.x != -1 && previousPosition.y != -1) {
-                // Desenha a linha entre a posição atual e a posição anterior da bola
-                line(frame, previousPosition, com, Scalar(0, 0, 255), 2);
+                // Adiciona a posição atual e seu tempo à lista
+                auto currentTime = chrono::steady_clock::now();
+                ballPositions.push_back(make_pair(com, currentTime));
+
+                // Remove as posições antigas da lista com base no tempo limite (2 segundos neste exemplo)
+                while (!ballPositions.empty() &&
+                    chrono::duration_cast<chrono::seconds>(currentTime - ballPositions.front().second).count() > 1) {
+                    ballPositions.pop_front();
+                }
+
+                // Desenha linhas entre as posições na lista
+                for (size_t i = 1; i < ballPositions.size(); i++) {
+                    line(frame, ballPositions[i - 1].first, ballPositions[i].first, Scalar(0, 0, 255), 2);
+                }
             }
 
             previousPosition = com; // Atualiza a posição anterior
@@ -335,7 +350,6 @@ int main() {
             imshow("Detector de bola verde", dst);
 
             //imshow("Thresholded Tennis Ball", threshFrame);
-
 
             // Show our image inside a window
             waitKey(30) == 27;
